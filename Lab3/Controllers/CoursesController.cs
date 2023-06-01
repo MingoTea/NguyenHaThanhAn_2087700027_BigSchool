@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
 
 namespace Lab3.Controllers
 {
@@ -48,7 +49,7 @@ namespace Lab3.Controllers
             };
             _dbContext.Courses.Add(course);
             _dbContext.SaveChanges();
-
+                
             return RedirectToAction("Index", "Home");
         }
     }

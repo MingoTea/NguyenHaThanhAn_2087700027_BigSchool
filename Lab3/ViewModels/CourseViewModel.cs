@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Data.Entity;
+using System.Globalization;
 
 namespace Lab3.ViewModels
 {
@@ -22,7 +24,9 @@ namespace Lab3.ViewModels
         public IEnumerable<Category> Categories { get; set; }
         public DateTime GetDateTime()
         {
-            return DateTime.Parse(string.Format("{0} {1}",Date,Time));  
+            string dateTimeString = $"{Date} {Time}";
+            return DateTime.ParseExact(dateTimeString, "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture);
+            //return DateTime.Parse(string.Format("{0} {1}", Date, Time));
         }
     }
 }

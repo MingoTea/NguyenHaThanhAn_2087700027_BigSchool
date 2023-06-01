@@ -8,7 +8,7 @@ using Lab3.Models;
 
 namespace Lab3.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : Controller        
     {
         private ApplicationDbContext _dbContext;
 
