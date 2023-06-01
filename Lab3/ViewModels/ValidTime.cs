@@ -13,11 +13,10 @@ namespace Lab3.ViewModels
         {
             DateTime dateTime;
             var isValid = DateTime.TryParseExact(Convert.ToString(value),
-            "HH:mm",
-            CultureInfo.CurrentCulture,
-            DateTimeStyles.None,
-            out dateTime);
-
+                "HH:mm",
+                CultureInfo.CurrentCulture,
+                DateTimeStyles.None,
+                out dateTime);
             return isValid;
         }
     }

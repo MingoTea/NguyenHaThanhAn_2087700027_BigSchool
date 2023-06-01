@@ -8,7 +8,7 @@ using System.Web;
 namespace Lab3.ViewModels
 {
     public class CourseViewModel
-    {
+    {   
         [Required]
         public string Place { get; set; }
         [Required]
@@ -19,12 +19,10 @@ namespace Lab3.ViewModels
         public string Time { get; set; }
         [Required]
         public byte Category { get; set; }
-
         public IEnumerable<Category> Categories { get; set; }
-
-        public DateTime GetDateTime() 
+        public DateTime GetDateTime()
         {
-            return DateTime.Parse(string.Format("{0} {1}", Date, Time));
+            return DateTime.Parse(string.Format("{0} {1}",Date,Time));  
         }
     }
 }
