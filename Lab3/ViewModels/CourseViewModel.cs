@@ -24,9 +24,9 @@ namespace Lab3.ViewModels
         public IEnumerable<Category> Categories { get; set; }
         public DateTime GetDateTime()
         {
-            string dateTimeString = $"{Date} {Time}";
-            return DateTime.ParseExact(dateTimeString, "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture);
-            //return DateTime.Parse(string.Format("{0} {1}", Date, Time));
+            //string dateTimeString = $"{Date} {Time}";
+            //return DateTime.ParseExact(dateTimeString, "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture);
+            return DateTime.Parse(string.Format("{0} {1}", Date, Time));
         }
     }
 }
