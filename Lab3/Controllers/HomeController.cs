@@ -5,18 +5,17 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
 using Lab3.Models;
+using Lab3.ViewModels;
 
 namespace Lab3.Controllers
 {
-    public class HomeController : Controller        
+    public class HomeController : Controller
     {
-        private ApplicationDbContext _dbContext;
-
+        private readonly ApplicationDbContext _dbContext;
         public HomeController()
         {
             _dbContext = new ApplicationDbContext();
         }
-
         public ActionResult Index()
         {
             var upcommingCourses = _dbContext.Courses
@@ -24,7 +23,14 @@ namespace Lab3.Controllers
                 .Include(c => c.Category)
                 .Where(c => c.DateTime > DateTime.Now);
 
-            return View(upcommingCourses);
+            var viewModel = new CoursesViewModel
+            {
+                UpcommingCourses = upcommingCourses,
+                ShowAction = User.Identity.IsAuthenticated
+            };
+            return View(viewModel);
+
+
         }
 
         public ActionResult About()
